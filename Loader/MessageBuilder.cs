@@ -1,22 +1,14 @@
-﻿using System;
-
-namespace BestLoadingDisplayerEver
+﻿namespace BestLoadingDisplayerEver
 {
     internal class MessageBuilder
-    {        
-        private string _message;
-        private SymbolGenerator symbolGenerator = new SymbolGenerator();
-
-        public MessageBuilder(string message)
-        {
-            _message = message;
-        }
+    {
+        private readonly CircularSequenceGenerator<string> _sequenceGenerator = new CircularSequenceGenerator<string>(new[] { @"\", "|", "/", "-" });
 
         public string CreateMessage()
         {            
-            char symbol = symbolGenerator.Generate();
+            string symbol = _sequenceGenerator.Next();
             
-            return String.Format("\r{0} {1}", _message, symbol);
+            return $"\r{symbol}";
         }
     }
 }

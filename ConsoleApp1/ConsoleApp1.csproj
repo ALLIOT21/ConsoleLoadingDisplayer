@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Loader\BestLoadingDisplayerEver.csproj" />
+    <ProjectReference Include="..\Loader\Loader.Core.csproj" />
   </ItemGroup>
 
 </Project>

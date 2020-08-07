@@ -1,4 +1,6 @@
 ﻿using BestLoadingDisplayerEver;
+using System;
+using System.Threading;
 
 namespace ConsoleApp1
 {
@@ -6,15 +8,33 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var ld = new LoadingDisplayer("Installing DOTA 2...", 300);
-            ld.Start();
+            var loader = new Loader();
 
-            for (int i = 0; i < 10000000; i++)
-            {
 
-            }
 
-            ld.Stop();
+            Console.WriteLine("Establishing the connection to DOTA 2 servers.");
+            loader.Start();
+
+            Thread.Sleep(2000);
+
+            loader.Stop();
+
+            Console.WriteLine();
+            Console.WriteLine("Connection successfully established.");
+
+            Thread.Sleep(200);
+
+            Console.WriteLine("Hacking the servers.");
+            loader.Start();
+
+            Thread.Sleep(4000);
+
+            loader.Stop();
+
+            Console.WriteLine();
+            Console.WriteLine("Pudge has been deleted from the game.");
+
+            Console.ReadLine();
         }
     }
 }
